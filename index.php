@@ -16,9 +16,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="/adminlte/plugins/fontawesome-free/css/all.min.css">
 
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="/adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="/adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
    <!-- jsGrid -->
    <link rel="stylesheet" href="/adminlte/plugins/jsgrid/jsgrid.min.css">
-  <link rel="stylesheet" href="/adminlte/plugins/jsgrid/jsgrid-theme.min.css">
+  <link rel="stylesheet" href="/adminlte/plugins/jsgrid/jsgrid-theme.min.css"> 
   <!-- Theme style -->
   <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css">
 </head>
@@ -48,7 +53,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
      //   include "layout/content-header.php";
      //   include "layout/countent-main.php";
      $compmentScriptContent = "compment/".$active.".php";
-     echo $compmentScriptContent;
+     
     include $compmentScriptContent;
 
         

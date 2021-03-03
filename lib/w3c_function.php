@@ -25,14 +25,16 @@ function print_nav_item($navItem = 'jsgrid', $title, $active = 'jsgrid')
 /**
  * Print Employee Table for jQuery DataTable
  */
-function print_employees_table()
+function print_employees_table($table ="a")
 {
-    $config = include("../db/config.php");
+    $config = include("/W3c2021/db/config.php");
+  //  var_dump($config);
     $db = new mysqli($config["host"], $config["username"], $config["password"], $config["db"]);
 
     $lastName = "%" . "" . "%";
     $sql = "SELECT employeeNumber,lastName,firstName,extension,email,officeCode,reportsTo,jobTitle FROM employees  WHERE lastName LIKE '" . $lastName . "'";
-    $result_sql = $db->query($sql);
+    //echo $sql;
+    $result_sql = $db->query($sql); 
 
 
 
@@ -42,9 +44,9 @@ function print_employees_table()
 
     $tableString = $tableString . '<tr>';
     $tableString = $tableString . '  <th>Employee Number</th>';
-    $tableString = $tableString . '  <th>Last Name/th>';
-    $tableString = $tableString . '  <th>First Name</th>';
-    $tableString = $tableString . '  <th>Extension/th>';
+    $tableString = $tableString . '  <th>Last Name </th>';
+    $tableString = $tableString . '  <th>First Name </th>';
+    $tableString = $tableString . '  <th>Extension</th>';
     $tableString = $tableString . '  <th>Email</th>';
     $tableString = $tableString . '  <th>Office Code</th>';
     $tableString = $tableString . '  <th>Reports To</th>';
@@ -71,16 +73,16 @@ function print_employees_table()
     }
 
 
-    $result_sql->close();
+    $result_sql->close(); 
 
 
     $tableString = $tableString . '</tbody>';
     $tableString = $tableString . '<tfoot>';
     $tableString = $tableString . '<tr>';
     $tableString = $tableString . '  <th>Employee Number</th>';
-    $tableString = $tableString . '  <th>Last Name/th>';
+    $tableString = $tableString . '  <th>Last Name</th>';
     $tableString = $tableString . '  <th>First Name</th>';
-    $tableString = $tableString . '  <th>Extension/th>';
+    $tableString = $tableString . '  <th>Extension</th>';
     $tableString = $tableString . '  <th>Email</th>';
     $tableString = $tableString . '  <th>Office Code</th>';
     $tableString = $tableString . '  <th>Reports To</th>';
@@ -88,4 +90,13 @@ function print_employees_table()
     $tableString = $tableString . '</tr>';
     $tableString = $tableString . '</tfoot>';
     $tableString = $tableString . '</table>';
+    
+    if (strlen($tableString)>0){
+        echo $tableString;
+        return 1;
+    } else{
+        echo  "Fail consruct string\n";
+        return 0;
+    }
+
 }

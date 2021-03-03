@@ -3,7 +3,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>jsGrid</h1>
+            <h1>jQuery Grid</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -24,8 +24,9 @@
         <!-- /.card-header -->
         <div class="card-body">
           <?php
-              include "../lib/w3c_function.php";
-              print_employees_table();
+              //require "lib/w3c_function.php";
+              
+              $li= print_employees_table();
           ?>
         </div>
         <!-- /.card-body -->
